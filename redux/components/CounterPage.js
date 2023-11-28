@@ -10,7 +10,7 @@ import {
 } from "@/redux-toolkit/features/counterSlice";
 
 const CounterPage = () => {
-  const [value, setValue] = useState(2);
+  const [number, setNamber] = useState(2);
   const counter = useSelector(selectCounter);
   const dispatch = useDispatch();
   return (
@@ -18,12 +18,8 @@ const CounterPage = () => {
       <h3>Counter Is : {counter}</h3>
       <button onClick={() => dispatch(increment())}>Increment </button>
       <button onClick={() => dispatch(decrement())}>Increment </button>
-      <input
-        type="number"
-        value={value}
-        oncChange={(e) => setValue(e.target.value)}
-      />
-      <button onClick={() => dispatch(incrementByAmount(+value))}>
+     <input type="number" value={number}  onChange={e => setNamber(e.target.value)}/>
+      <button onClick={() => dispatch(incrementByAmount(+number))}>
         Increment By Amount
       </button>
     </div>
